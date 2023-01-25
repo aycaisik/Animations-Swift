@@ -17,23 +17,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ed6-mt-Wfa">
-                                <rect key="frame" x="121" y="140" width="150" height="150"/>
+                                <rect key="frame" x="23" y="140" width="333" height="245"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_5462" translatesAutoresizingMaskIntoConstraints="NO" id="4kl-3p-TAO">
-                                        <rect key="frame" x="0.0" y="8" width="150" height="134"/>
+                                        <rect key="frame" x="16" y="20" width="309" height="187"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90p-6L-kf9">
-                                        <rect key="frame" x="77" y="16" width="26" height="17"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
-                                        <nil key="textColor"/>
-                                        <color key="highlightedColor" red="0.91756367683410645" green="0.56608188152313232" blue="0.90413111448287964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="shadowColor" red="0.91756367683410645" green="0.56608188152313232" blue="0.90413111448287964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -42,7 +34,6 @@
                     <connections>
                         <outlet property="animatableView" destination="ed6-mt-Wfa" id="icD-6C-64x"/>
                         <outlet property="resim" destination="4kl-3p-TAO" id="VJc-Wp-6Xa"/>
-                        <outlet property="title" destination="90p-6L-kf9" id="TjL-db-Rpa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -54,9 +45,6 @@
         <image name="IMG_5462" width="2320" height="3088"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

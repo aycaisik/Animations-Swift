@@ -7,11 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var animatableView: UIView!
     @IBOutlet weak var resim: UIImageView!
-    @IBOutlet  var titlew: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +19,20 @@ class ViewController: UIViewController {
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        let textfield = UITextField.init(frame: CGRect(x: 0, y: 0, width: 150 , height: 134))
-        textfield.backgroundColor = .white
-        textfield.textColor = .systemPink
-        textfield.placeholder = "seni seviom askusum💖"
+   /* override func viewDidLayoutSubviews() {
+        let textfield = UITextField.init(frame: CGRect(x: 126, y: 150, width: 200 , height: 200))
+                
+        textfield.textColor = .black
+      
+        
+        
+        textfield.placeholder = "seni seviom askusum🖤"
+        textfield.delegate = self
+        view.addSubview(textfield)
         
         
     }
+    */
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -47,17 +52,32 @@ class ViewController: UIViewController {
             
             */
             
-            UIView.animate(withDuration: 2, delay: 3, options: [.repeat]) {
-                self.animatableView.backgroundColor = .red
+            /*UIView.animate(withDuration: 3, delay: 4, options: [.repeat]) {
+                self.animatableView.backgroundColor = .white
                 
                 self.resim.frame = CGRect(x: 100, y: 300, width: 70, height: 50)
-            
                 
-                
-            }
+            }*/
+            applyScaleTransformation()
             
         }
+        //Transform: Arayüz elemanları üzerinde ; scale , rotate translate ,move gibi
+        //değişiklikler yapılmasını sağlayan proepertydir.
         
+        func applyScaleTransformation(){
+            //Transform uygulancak arayüz elemanının genişlik ve yükseklik bilgisini iki katına çıkarır.
+            let scaletransform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+            UIView.animate(withDuration: 2) {
+                self.animatableView.transform = scaletransform
+            }
+        }
         
+        func applyRotationTransformation(){
+            let rotationtransform = CGAffineTransform(rotationAngle: .pi)
+            UIView.animate(withDuration: 2){
+                self.animatableView.transform = rotationtransform
+
+            }
+        }
     }
 }
