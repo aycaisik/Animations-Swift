@@ -11,6 +11,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var animatableView: UIView!
     @IBOutlet weak var resim: UIImageView!
+    @IBOutlet  var widthConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,26 +59,75 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 self.resim.frame = CGRect(x: 100, y: 300, width: 70, height: 50)
                 
             }*/
-            applyScaleTransformation()
+            //applyScaleTransformation()
+            //applyRotationTransformation()
+            //applytranslatetransformation()
+            //applycomplextransform()
+            animatedWidthConstraintChange()
             
         }
         //Transform: Arayüz elemanları üzerinde ; scale , rotate translate ,move gibi
         //değişiklikler yapılmasını sağlayan proepertydir.
         
-        func applyScaleTransformation(){
+        /*func applyScaleTransformation(){
             //Transform uygulancak arayüz elemanının genişlik ve yükseklik bilgisini iki katına çıkarır.
             let scaletransform = CGAffineTransform(scaleX: 2.0, y: 2.0)
             UIView.animate(withDuration: 2) {
                 self.animatableView.transform = scaletransform
             }
         }
+         */
         
-        func applyRotationTransformation(){
+       /* func applyRotationTransformation(){
             let rotationtransform = CGAffineTransform(rotationAngle: .pi)
             UIView.animate(withDuration: 2){
                 self.animatableView.transform = rotationtransform
 
             }
+        }*/
+        
+       /* func applytranslatetransformation(){
+            //transform uygulancak arayüz elemanının x ekseninde 100 birimlik y ekseninde ise 50 birimlik bir değişim uygulanı.r
+            let trans = CGAffineTransform(translationX: 100, y: 50)
+            UIView.animate(withDuration: 2) {
+                self.animatableView.transform = trans
+            }
         }
+        */
+        func applycomplextransform(){
+            let rotationtransform = CGAffineTransform(rotationAngle: .pi)
+            let trans = CGAffineTransform(translationX: 100, y: 50)
+            let scaletransform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+
+            let combotransform = scaletransform.concatenating(rotationtransform).concatenating(trans)
+           /* UIView.animate(withDuration: 2) {
+                self.animatableView.transform = combotransform
+                
+            }*/
+            
+            UIView.animate(withDuration: 2) {
+                self.animatableView.transform = combotransform
+
+            } completion: { (_) in
+                // .identity animasyonlardan önceki transform özelliklerini belirtir.
+                UIView.animate(withDuration: 1) {
+                    self.animatableView.transform = .identity
+                }
+            }
+            }
+        
+        func animatedWidthConstraintChange(){
+            widthConstraint.constant = 200
+            
+            //Bir önceki durum ile şuan arasındaki constraintlerde bir değişim varsa constraintleri yeniden hesaplar(bu işlem anime edilebilir.)
+            UIView.animate(withDuration: 2) {
+                self.view.layoutIfNeeded()
+
+            }
+            
+        }
+
+        }
+
     }
-}
+
